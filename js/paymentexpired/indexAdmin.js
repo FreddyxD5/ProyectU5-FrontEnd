@@ -14,8 +14,7 @@ async function obtenerRecibosVencidos(){
                     "Authorization":`Token ${localStorage.getItem('access')}`
                 }
             })            
-            const data = await response.json()   
-            console.log(data)         
+            const data = await response.json()                    
             pagosList.innerHTML +=  ""            
             data.forEach(elements=>{        
                 let estado = "danger"

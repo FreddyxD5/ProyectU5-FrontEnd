@@ -36,9 +36,8 @@ async function logout(){
         
         localStorage.removeItem('access')
         localStorage.removeItem('refresh')
-        localStorage.removeItem('email')
-        window.location.replace('../index.html')        
-        
+        localStorage.removeItem('email')        
+        window.location.replace('../index.html')                
     }
 }
 

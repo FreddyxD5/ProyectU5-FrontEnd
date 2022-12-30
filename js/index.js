@@ -79,7 +79,7 @@ async function login() {
               localStorage.setItem('email', `${datos['email']}`) 
               localStorage.setItem('is_superuser', `${datos['is_superuser']}`) 
               if (datos['is_superuser']){
-                setTimeout(()=>{
+                setTimeout(()=>{                    
                     window.location.replace("./pages/adashboard.html");
                   },1500)        
               }else{
@@ -129,6 +129,7 @@ async function checkAuthenticated(){
             }            
         }else{
             cleanLocalStorage();
+            window.location.replace("../index.html");
         }  
     }else{
         return false

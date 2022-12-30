@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Mis pagos</a>
+                        <a class="nav-link active" aria-current="page" href="./index.html">Mis pagos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="../paymentexpired/index.html">Recibos vencidos</a>
@@ -115,6 +115,44 @@
             </div>
           </div>
           <!-- END CREAR NUEVO REGISTRO DE PAGOS-->
+          <!-- EDITAR PAGO-->
+          <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Servicio</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="editarPago">
+                    <div id="msg" class="alert alert-danger d-none" role="alert"></div>
+                    <div class="mb-3 d-none">
+                      <label for="recipient-name" class="col-form-label">ID Servicio:</label>
+                      <input type="text" class="form-control" id="id_servicio">
+                    </div>
+                    <div class="mb-3">
+                      <label for="recipient-name" class="col-form-label">Nombre del Servicio:</label>
+                      <input type="text" class="form-control" id="edit_name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="message-text" class="col-form-label">Descripcion del Servicio:</label>
+                      <textarea class="form-control" id="edit_description"></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label for="message-text" class="col-form-label">Url Logo</label>
+                      <textarea class="form-control" id="edit_logo"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" id="closemodal" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Actualizar</button>
+                    </div>
+                  </form>
+                </div>
+      
+              </div>
+            </div>
+          </div>
+          <!-- END EDITAR PAGO-->>
     </main>
 
 

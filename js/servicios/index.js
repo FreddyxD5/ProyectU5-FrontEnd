@@ -171,8 +171,7 @@ editarServicioForm.addEventListener('submit', (event) => {
 
 async function setData(id_servicio) {
     if (localStorage.getItem('access')) {
-        try {
-            console.log('There you gooooooo')
+        try {            
             const response = await fetch(`${URL_API}/services/${id_servicio}/`, {
                 method: "get",
                 mode: "cors",

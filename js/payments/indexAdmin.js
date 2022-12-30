@@ -9,8 +9,7 @@ const fechaVencimiento = document.getElementById('fechaVencimiento')
 const pagosList = document.getElementById('pagoslist')
 
 crearServicio.addEventListener('change',(event)=>{
-    event.preventDefault()
-    console.log("cambio?")    
+    event.preventDefault()    
 })
 
 function formatearFecha(date){    
@@ -64,8 +63,7 @@ async function crearPago(){
         amount: monto.value,
         payment_date: fechaPago.value,
         expiration_date:fechaVencimiento.value
-    }
-    console.log(data_payment)
+    }    
     if (localStorage.getItem('access')){
         try{
             const response = await fetch('http://127.0.0.1:8000/payment_user/',{
@@ -77,8 +75,7 @@ async function crearPago(){
                 },
                 body:JSON.stringify(data_payment)
             })
-            const data = await response.json()
-            console.log(data)
+            const data = await response.json()            
             Swal.fire(
                 '¡Pago Creado!',
                 'Los datos se guardaron correctamente',
@@ -188,14 +185,14 @@ async function obtenerPagos(){
                         <span class="badge badge-${estado} rounded-pill d-inline">${mensage}</span>
                     </td>
                     <td>S/ ${elements['amount']}</td>
-                    <td>
-                        <button type="button" class="btn btn-link btn-sm btn-rounded">
-                            Editar
-                        </button>
-                        <button type="button" class="btn btn-link btn-sm btn-rounded">
-                            Eliminar
-                        </button>
-                    </td>
+                    ${localStorage.getItem("is_superuser") ==="true" ? `<td>
+                    <button type="button" class="btn btn-primary"
+                    onclick="setData(${elements['id']})" data-bs-toggle="modal" data-bs-target="#editarModal"
+                    data-bs-whatever="@mdo">Editar</button>
+                    <button type="button" onclick="eliminarPago(${elements['id']})" class="btn btn-link btn-sm btn-rounded">
+                        Eliminar
+                    </button>
+                </td>`: `<td></td>`}                    
                 </tr>`
             })
             
@@ -209,5 +206,130 @@ async function obtenerPagos(){
     }
 }
 
+//Editar Pago
+const editarPagoForm = document.getElementById("editarPago")
+const edit_nombre_servicio = document.getElementById('edit_name')
+const edit_description_servicio = document.getElementById('edit_description')
+const edit_logo_servicio = document.getElementById('edit_logo')
+const edit_id_servicio = document.getElementById('id_servicio')
+
+editarPagoForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    editarServicio();
+})
+
+async function setData(id_pago) {
+    if (localStorage.getItem('access')) {
+        try {            
+            const response = await fetch(`${URL_API}/services/${id_servicio}/`, {
+                method: "get",
+                mode: "cors",
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Authorization": `Token ${localStorage.getItem('access')}`
+                }
+            })
+            const data = await response.json()
+            edit_id_servicio.value = data['id']
+            edit_nombre_servicio.value = data['name']
+            edit_description_servicio.value = data['description']
+            edit_logo_servicio.value = data['logo']
+
+        } catch (error) {
+            window.location.replace('../../index.html')
+        }
+    } else {
+        window.location.replace('../../index.html')
+    }
+
+}
+async function editarServicio() {
+    if (localStorage.getItem('access')){
+        try {
+            const data = {
+                name: edit_nombre_servicio.value,
+                description: edit_description_servicio.value,
+                logo: edit_logo_servicio.value
+            }
+            const response = await fetch(`${URL_API}/services/${edit_id_servicio.value}/`, {
+                method: "PUT",
+                mode: "cors",
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Authorization": `Token ${localStorage.getItem('access')}`
+                },
+                body: JSON.stringify(data)
+            })
+            Swal.fire(
+                '¡Servicio Editado!',
+                'Los datos se guardaron correctamente',
+                'success'
+            ).then((result)=>{
+                if (result.isConfirmed){
+                    window.location.replace('./index.html')
+                }
+            })
+            //  
+            
+    
+    
+    
+        } catch (err) {
+            window.location.replace('../../index.html')
+        }
+    }else{
+        window.location.replace('../../index.html')
+    }
+}
+
+//Eliminar Pago
+async function eliminarPago(id_pago) {
+    Swal.fire({
+        title: "¿Deseas Eliminar el servicio?",
+        text: "¡No podrás revertir esta acción!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Eliminar",
+        cancelButtonText: "Cancelar",
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            try {
+                const response = await fetch(`${URL_API}/payment_user/${id_pago}/`, {
+                    method: "delete",
+                    mode: "cors",
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "Authorization": `Token ${localStorage.getItem('access')}`
+                    }
+                })
+                Swal.fire(
+                    'Eliminado!',
+                    'El Servicio ha sido eliminado correctamente.',
+                    'success'
+                ).then((result)=>{
+                    if(result.isConfirmed){
+                        window.location.replace("./index.html")
+                    }
+                })
+                
+            } catch (err) {
+                Swal.fire(
+                    'Algo ha ocurrido en el servidor',
+                    'Intentelo mas tarde.',
+                    'error'
+                )
+            }
+
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire(
+                'Cancelled',
+                'Your imaginary file is safe :)',
+                'error'
+            )
+        }
+    })
+}
 
 obtenerPagos();
