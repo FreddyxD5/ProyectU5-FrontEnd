@@ -51,8 +51,7 @@ async function mostrarServicios() {
         })
 
         if (response.status === 200) {
-            const data = await response.json()
-            console.log(data)
+            const data = await response.json()            
             main.innerHTML = "";
 
             data.results.forEach((task) => {
@@ -106,8 +105,7 @@ async function mostrarServicios() {
                 clearInterval(timerInterval)
             }
         }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.timer) {
-                console.log('I was closed by the timer')
+            if (result.dismiss === Swal.DismissReason.timer) {                
                 window.location.replace('../../index.html')
             }
         })
@@ -234,12 +232,10 @@ async function editarServicio() {
 }
 //Mostrar Boton
 const btnCrear = document.getElementById('btnañadirServicio')
-function showOption(){        
-    console.log(localStorage.getItem('is_superuser'))
+function showOption(){            
     if(localStorage.getItem('is_superuser')==='true'){        
         //pass        
-    }else{
-        console.log('siuu?')
+    }else{        
         btnCrear.style.display = 'none'
     }
 }

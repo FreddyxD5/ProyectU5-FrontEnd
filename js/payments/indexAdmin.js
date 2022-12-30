@@ -80,8 +80,13 @@ async function crearPago(){
                 '¡Pago Creado!',
                 'Los datos se guardaron correctamente',
                 'success'
-            )
-            $('#newPaymentService').modal('hide')
+            ).then((result)=>{
+                if(result.isConfirmed){
+                    window.location.replace('./index.html')
+                }
+            })
+            
+            
 
         }catch(error){            
             window.location.replace('../../index.html')
@@ -91,20 +96,6 @@ async function crearPago(){
     }
 }
 
-//ELIMINAR PAGO
-// async function eliminarPago(){
-
-//     if(localStorage.getItem('access')){
-//         try{
-
-//         }catch(err){
-//             window.location.replace('../../index.html')
-//         }
-
-//     }else{
-//         window.location.replace('../../index.html')
-//     }
-// }
 
 async function setServiceData(){
     if (localStorage.getItem('access')){

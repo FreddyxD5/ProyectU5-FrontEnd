@@ -14,10 +14,8 @@ function cleanLocalStorage(){
 }
 
 loginForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    console.log('what')
-    loginFormValidation();
-    console.log('what2')
+    event.preventDefault();    
+    loginFormValidation();    
 })
 
 let loginFormValidation = () => {
@@ -32,8 +30,7 @@ let loginFormValidation = () => {
     else if (password.value === "") {
         msg.innerHTML = "La contraseña no debe estar vacia"
         msg.classList.remove("d-none")
-    } else {
-        console.log('Haciendo login?')
+    } else {        
         msg.classList.add("d-none")
         login()
     }
@@ -79,7 +76,7 @@ async function login() {
               localStorage.setItem('email', `${datos['email']}`) 
               localStorage.setItem('is_superuser', `${datos['is_superuser']}`) 
               if (datos['is_superuser']){
-                setTimeout(()=>{                    
+                setTimeout(()=>{                        
                     window.location.replace("./pages/adashboard.html");
                   },1500)        
               }else{
@@ -120,8 +117,7 @@ async function checkAuthenticated(){
             })
         })                
         if (response.status === 200){            
-            const data = await response.json()                        
-            console.log(data['is_superuser'])
+            const data = await response.json()                                    
             if (data['is_superuser']){                
                 window.location.replace("./pages/adashboard.html");
             }else{

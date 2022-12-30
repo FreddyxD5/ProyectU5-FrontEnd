@@ -8,8 +8,7 @@ logoutButton.addEventListener('click',(event)=>{
 })  
 
 function setUsername(){    
-    if(localStorage.getItem('email')){
-        console.log()
+    if(localStorage.getItem('email')){        
         username.innerHTML = localStorage.getItem('email')
     }else{
         username.innerHTML = 'Desconocido'
