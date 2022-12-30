@@ -2,6 +2,24 @@
 <html lang="en">
 
 <head>
+  <style>
+    .css-3d-text {
+       font-size: 62px;
+       color: #578fff;
+       font-family: 'Trebuchet MS', Helvetica, sans-serif;
+       text-shadow: 0px 0px 0 rgb(47,103,215),
+                    1px 1px 0 rgb(7,63,175),
+                    2px 2px 0 rgb(-32,24,136),
+                    3px 3px 0 rgb(-72,-16,96),
+                    4px 4px 0 rgb(-112,-56,56),
+                    5px 5px 0 rgb(-152,-96,16),
+                    6px 6px  0 rgb(-192,-136,0),
+                    7px 7px 6px rgba(0,0,0,0.19),
+                    7px 7px 1px rgba(0,0,0,0.5),
+                    0px 0px 6px rgba(0,0,0,.2);
+    }
+   
+   </style>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,16 +33,16 @@
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body style="background-image: radial-gradient(circle at 44.01% 50%, #ffffff 0, #b6b6ec 50%, #808088 100%);">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Pyment Site</a>
+      <a class="navbar-brand" href="./adashboard.html">Pyment Site</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-          <li class="nav-item">
+    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+         <!---     <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./payments/index.html">Mis pagos</a>
           </li>                            
           <li class="nav-item">
@@ -32,7 +50,7 @@
           </li>                            
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="services/index.html">Servicios</a>
-          </li>                            
+          </li>  -->                          
         </ul>
         <div class="d-flex" role="search">
           <img src="../images/user.png" alt="" width="40" height="35">
@@ -50,7 +68,45 @@
   </nav>
 
   <main class="container-fluid">
-    <h1>Holitas de mar</h1>
+    <h1 class="css-3d-text" style="text-align:center;">Bienvenido</h1>
+    <div class="row d-flex justify-content-center" >
+      <div class="col-sm-3">
+        <div class="card"> 
+          <img src="https://st2.depositphotos.com/1420268/8175/v/450/depositphotos_81752070-stock-illustration-businessman-hand-with-credit-card.jpg"  class="img-fluid"  alt="Responsive image">
+
+
+          <div class="card-body">
+            <h5 class="card-title">Mis pagos</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            
+            <a href="./payments/index.html" class="btn btn-primary">Ir a mis pagos</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">  
+          <img src="https://st2.depositphotos.com/7752738/44028/v/600/depositphotos_440281066-stock-illustration-past-due-payment-bill-pay.jpg"  class="img-fluid" alt="Responsive image">
+
+          <div class="card-body">
+            <h5 class="card-title">Pagos Vencidos</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="./payments/index.html" class="btn btn-primary">Ir a pagos vencidos</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card"> 
+           <img src="https://media.istockphoto.com/id/1207319938/es/vector/ilustraci%C3%B3n-del-concepto-isom%C3%A9trico-con-las-personas.jpg?s=612x612&w=0&k=20&c=ghuB9Vlyn5hwN5g2XCuQHIf1K-bnb9m3g75dB7Y-FaE=" class="img-fluid"  alt="Responsive image">
+
+          <div class="card-body">
+            <h5 class="card-title">Servicios</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="services/index.html" class="btn btn-primary">Ir a servicios</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     </main>
 
           
