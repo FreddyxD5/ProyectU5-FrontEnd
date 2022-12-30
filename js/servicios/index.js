@@ -69,9 +69,10 @@ async function mostrarServicios() {
                             <div class="card-body">
                                 <h5 class="card-title">${name}</h5>
                                 <p class="card-text">${description}</p>
-                                <button type="button" class="btn btn-primary" onclick="setData(${id})" data-bs-toggle="modal" data-bs-target="#editarModal"
+                                ${localStorage.getItem("is_superuser") ==="true" ? `<button type="button" class="btn btn-primary" onclick="setData(${id})" data-bs-toggle="modal" data-bs-target="#editarModal"
                                 data-bs-whatever="@mdo">Editar</button>                                
-                                <button onclick="eliminarServicio(${id})" class="btn btn-danger">Eliminar</button>
+                                <button onclick="eliminarServicio(${id})" class="btn btn-danger">Eliminar</button> `: `<div></div>`}
+                                
                             </div>
                         </div>                        
                       </div>
@@ -232,6 +233,18 @@ async function editarServicio() {
         window.location.replace('../../index.html')
     }
 }
+//Mostrar Boton
+const btnCrear = document.getElementById('btnañadirServicio')
+function showOption(){        
+    console.log(localStorage.getItem('is_superuser'))
+    if(localStorage.getItem('is_superuser')==='true'){        
+        //pass        
+    }else{
+        console.log('siuu?')
+        btnCrear.style.display = 'none'
+    }
+}
+showOption();
 
 //Eliminar Servicio
 async function eliminarServicio(id_servicio) {

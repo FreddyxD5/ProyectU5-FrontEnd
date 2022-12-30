@@ -2,56 +2,116 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login page</title>
+  <style>
+    .css-3d-text {
+      font-size: 62px;
+      color: #578fff;
+      font-family: 'Trebuchet MS', Helvetica, sans-serif;
+      text-shadow: 0px 0px 0 rgb(47, 103, 215),
+        1px 1px 0 rgb(7, 63, 175),
+        2px 2px 0 rgb(-32, 24, 136),
+        3px 3px 0 rgb(-72, -16, 96),
+        4px 4px 0 rgb(-112, -56, 56),
+        5px 5px 0 rgb(-152, -96, 16),
+        6px 6px 0 rgb(-192, -136, 0),
+        7px 7px 6px rgba(0, 0, 0, 0.19),
+        7px 7px 1px rgba(0, 0, 0, 0.5),
+        0px 0px 6px rgba(0, 0, 0, .2);
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login page</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
-    
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+
+<body style="background-image: radial-gradient(circle at 44.01% 50%, #ffffff 0, #b6b6ec 50%, #808088 100%);">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="../index.html">Pyment Site</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <!---     <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./payments/index.html">Mis pagos</a>
+          </li>                            
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Añadir pago</a>
-          </li>          
+            <a class="nav-link active" aria-current="page" href="./payments/index.html">Pagos Vencidos</a>
+          </li>                            
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="services/index.html">Servicios</a>
+          </li>  -->
         </ul>
         <div class="d-flex" role="search">
           <img src="../images/user.png" alt="" width="40" height="35">
           <div class="d-flex">
             <span class="navbar-text" id="email">
-              Usuario            
-            </span><br/>
-            <a class="navbar-text" href="#" id="logout">
+              Usuario
+            </span><br />
+            <a class="navbar-text" id="logout">
               Cerrar Session
             </a>
-          </div>                    
+          </div>
         </div>
       </div>
     </div>
   </nav>
 
-          
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
-        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../js/admin.js"></script>
+  <main class="container-fluid">
+    <h1 class="css-3d-text" style="text-align:center;">Bienvenido</h1>
+    <div class="row d-flex justify-content-center">
+      <div class="col-sm-3">
+        <div class="card">
+          <img
+            src="https://st2.depositphotos.com/1420268/8175/v/450/depositphotos_81752070-stock-illustration-businessman-hand-with-credit-card.jpg"
+            class="img-fluid" alt="Responsive image">
+
+
+          <div class="card-body">
+            <h5 class="card-title">Mis pagos</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+            <a href="./payments/index.html" class="btn btn-primary">Ir a mis pagos</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <img
+            src="https://st2.depositphotos.com/7752738/44028/v/600/depositphotos_440281066-stock-illustration-past-due-payment-bill-pay.jpg"
+            class="img-fluid" alt="Responsive image">
+
+          <div class="card-body">
+            <h5 class="card-title">Pagos Vencidos</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="./payments/index.html" class="btn btn-primary">Ir a pagos vencidos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../js/admin.js"></script>
 </body>
 
 </html>

@@ -10,6 +10,7 @@ function cleanLocalStorage(){
     localStorage.removeItem('access')
     localStorage.removeItem('refresh')
     localStorage.removeItem('email')
+    localStorage.removeItem('is_superuser')
 }
 
 loginForm.addEventListener('submit', (event) => {
@@ -76,6 +77,7 @@ async function login() {
               localStorage.setItem('access', `${datos['tokens']['access']}`)
               localStorage.setItem('refresh', `${datos['tokens']['refresh']}`)        
               localStorage.setItem('email', `${datos['email']}`) 
+              localStorage.setItem('is_superuser', `${datos['is_superuser']}`) 
               if (datos['is_superuser']){
                 setTimeout(()=>{
                     window.location.replace("./pages/adashboard.html");
