@@ -57,7 +57,7 @@ function formValidationPayment(){
     }, 2000)
 
 }
-
+//CREAR PAGO
 async function crearPago(){
     const data_payment = {
         service: selectService.value,
@@ -93,6 +93,21 @@ async function crearPago(){
         window.location.replace('../../index.html')
     }
 }
+
+//ELIMINAR PAGO
+// async function eliminarPago(){
+
+//     if(localStorage.getItem('access')){
+//         try{
+
+//         }catch(err){
+//             window.location.replace('../../index.html')
+//         }
+
+//     }else{
+//         window.location.replace('../../index.html')
+//     }
+// }
 
 async function setServiceData(){
     if (localStorage.getItem('access')){
@@ -188,10 +203,9 @@ async function obtenerPagos(){
         }catch(err){
             console.log('Algo Ocurrio en el servidor')
         }
-    }else{
-        console.log('a?')
+    }else{        
         // cleanLocalStorage()
-        // window.location.replace("../../index.html")
+        window.location.replace("../../index.html")
     }
 }
 
